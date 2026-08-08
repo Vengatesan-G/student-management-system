@@ -1,0 +1,366 @@
+/* LOGIN PAGE */
+
+body{
+    min-height:100vh;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%); /* Tailwind Slate-900 to Indigo-950 */
+}
+
+
+/* Login heading */
+
+.login-title,.login-heading{
+    text-align:center;
+    font-size:32px;
+    font-weight:700;
+    margin-top:20px;
+    color:#f8fafc; /* Tailwind slate-50 */
+    text-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+}
+
+.login-heading{
+    font-size: 24px;
+    margin-top: 10px;
+    color: #cbd5e1;
+}
+
+/* Demo Login Card - Styled to match Dark theme */
+
+.login-info {
+    width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    text-align: center;
+    background: #1e293b; /* Tailwind slate-800 */
+    border: 1px solid #334155; /* Tailwind slate-700 */
+    border-radius: 12px;
+    color: #cbd5e1;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.login-info p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.login-info strong {
+    color: #a5b4fc; /* Tailwind indigo-300 */
+    font-size: 15px;
+}
+
+
+/* Form common */
+
+form{
+
+    width:400px;
+
+    margin:25px auto 10px auto;
+
+    padding:35px;
+
+    background:#1e293b; /* Tailwind slate-800 */
+
+    border-radius:20px;
+
+    border: 1px solid #334155; /* Tailwind slate-700 */
+
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(99, 102, 241, 0.15);
+
+}
+
+
+label{
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#e2e8f0; /* Tailwind slate-200 */
+
+}
+
+
+input{
+
+    margin-top:8px;
+
+    margin-bottom:20px;
+
+    width:100%;
+
+    padding:13px;
+
+    border-radius:10px;
+
+    background:#0f172a; /* Tailwind slate-900 */
+
+    color:#f8fafc; /* Tailwind slate-50 */
+
+    border:1px solid #334155; /* Tailwind slate-700 */
+
+    font-size:15px;
+
+}
+
+
+
+input:focus{
+
+    outline:none;
+
+    border-color:#6366f1; /* Tailwind indigo-500 */
+
+    box-shadow:0 0 0 3px rgba(99, 102, 241, 0.4);
+
+}
+
+
+/* All buttons */
+
+button{
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:12px 22px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+/* Login / Submit / Update */
+
+form button{
+
+    width:100%;
+
+    color:#ffffff;
+
+    background:linear-gradient(
+        135deg,
+        #6366f1, /* Tailwind indigo-500 */
+        #a855f7  /* Tailwind purple-500 */
+    );
+
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+
+}
+
+
+form button:hover{
+
+    transform:translateY(-2px);
+
+    opacity:0.95;
+
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
+
+}
+
+
+
+/* HOME TABLE */
+
+table{
+
+    width:90%;
+
+    margin:30px auto;
+
+    background:transparent;
+
+    border-collapse:separate;
+
+    border-spacing: 0 12px; /* Adds space between rows for 20px rounded corners */
+
+}
+
+
+th{
+
+    background:linear-gradient(
+        135deg,
+        #4f46e5, /* Tailwind indigo-600 */
+        #7c3aed  /* Tailwind violet-600 */
+    );
+
+    color:#ffffff;
+
+    padding:16px;
+
+}
+
+th:first-child{
+
+    border-top-left-radius:12px;
+
+    border-bottom-left-radius:12px;
+
+}
+
+th:last-child{
+
+    border-top-right-radius:12px;
+
+    border-bottom-right-radius:12px;
+
+}
+
+
+tr{
+
+    background:#1e293b; /* Tailwind slate-800 */
+
+    box-shadow:0 8px 20px rgba(0, 0, 0, 0.3);
+
+}
+
+
+td{
+
+    padding:16px 14px;
+
+    text-align:center;
+
+    color:#e2e8f0; /* Tailwind slate-200 */
+
+    border-top:1px solid #334155;
+
+    border-bottom:1px solid #334155;
+
+}
+
+
+/* Rectangle Box with 20px Corner Radius on Rows */
+
+tr td:first-child{
+
+    border-top-left-radius:20px;
+
+    border-bottom-left-radius:20px;
+
+    border-left:1px solid #334155;
+
+}
+
+tr td:last-child{
+
+    border-top-right-radius:20px;
+
+    border-bottom-right-radius:20px;
+
+    border-right:1px solid #334155;
+
+}
+
+
+tr:hover{
+
+    background:#2d3748; /* Slightly lighter on hover */
+
+}
+
+
+/* Spacing between Edit & Delete buttons */
+
+td button{
+
+    margin: 0 6px;
+
+}
+
+
+/* Edit button */
+
+td button:first-child{
+
+    background:#10b981; /* Tailwind emerald-500 */
+
+    color:#ffffff;
+
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+
+}
+
+
+
+/* Delete button */
+
+td button:nth-child(2){
+
+    background:#f43f5e; /* Tailwind rose-500 */
+
+    color:#ffffff;
+
+    box-shadow: 0 2px 8px rgba(244, 63, 94, 0.3);
+
+}
+
+
+
+/* Add Student Button (Centered) */
+
+button[onclick],
+.add-student-btn{
+
+    background:linear-gradient(
+        135deg,
+        #06b6d4, /* Tailwind cyan-500 */
+        #3b82f6  /* Tailwind blue-500 */
+    );
+
+    color:#ffffff;
+
+    display:block;
+
+    margin:30px auto; /* Centered */
+
+    text-align:center;
+
+    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.4);
+
+}
+
+
+button:hover{
+
+    transform:scale(1.03);
+
+}
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    form, .login-info{
+
+        width:90%;
+
+    }
+
+
+    table{
+
+        width:95%;
+
+        font-size:12px;
+
+    }
+
+    td button{
+
+        margin: 4px 2px;
+
+    }
+
+}
