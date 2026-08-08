@@ -2,8 +2,12 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
 
+import {
+    collection,
+    addDoc,
+    getDocs
+} from "firebase/firestore";
 
 function AddStudent() {
 
@@ -15,14 +19,52 @@ function AddStudent() {
     const navigate = useNavigate();
 
 
-    const handleSubmit = async (e) => {
+    async function handleSubmit(e) {
 
         e.preventDefault();
 
 
+        // Get all existing students
+        const snapshot = await getDocs(
+            collection(db, "students")
+        );
+
+
+        // Find highest studentId
+        let highestId = 0;
+
+
+        snapshot.docs.forEach(
+            (studentDoc) => {
+
+                const data =
+                    studentDoc.data();
+
+
+                const currentId =
+                    Number(data.studentId) || 0;
+
+
+                if (currentId > highestId) {
+
+                    highestId = currentId;
+
+                }
+
+            }
+        );
+
+
+        // New ID = highest ID + 1
+        const newStudentId =
+            highestId + 1;
+
+
+        // Add new student
         await addDoc(
             collection(db, "students"),
             {
+                studentId: newStudentId,
                 name: name,
                 age: age,
                 email: email,
@@ -31,15 +73,16 @@ function AddStudent() {
         );
 
 
+        // Go to Home
         navigate("/home");
-
-    };
+    }
 
 
     return (
         <>
 
             <h1>Add Student</h1>
+
 
             <form onSubmit={handleSubmit}>
 
@@ -50,10 +93,15 @@ function AddStudent() {
                     type="text"
                     placeholder="Enter the name"
                     value={name}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) =>
+                        setName(e.target.value)
+                    }
+                    required
                 />
 
-                <br /><br />
+
+                <br />
+                <br />
 
 
                 <label>Age:</label>
@@ -63,10 +111,15 @@ function AddStudent() {
                     type="number"
                     placeholder="Enter the age"
                     value={age}
-                    onChange={(e) => setAge(e.target.value)}
+                    onChange={(e) =>
+                        setAge(e.target.value)
+                    }
+                    required
                 />
 
-                <br /><br />
+
+                <br />
+                <br />
 
 
                 <label>Email:</label>
@@ -76,10 +129,15 @@ function AddStudent() {
                     type="email"
                     placeholder="Enter the email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) =>
+                        setEmail(e.target.value)
+                    }
+                    required
                 />
 
-                <br /><br />
+
+                <br />
+                <br />
 
 
                 <label>Course:</label>
@@ -89,10 +147,15 @@ function AddStudent() {
                     type="text"
                     placeholder="Enter the course"
                     value={course}
-                    onChange={(e) => setCourse(e.target.value)}
+                    onChange={(e) =>
+                        setCourse(e.target.value)
+                    }
+                    required
                 />
 
-                <br /><br />
+
+                <br />
+                <br />
 
 
                 <button type="submit">
@@ -104,6 +167,5 @@ function AddStudent() {
         </>
     );
 }
-
 
 export default AddStudent;
